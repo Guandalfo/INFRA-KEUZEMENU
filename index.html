@@ -1,10 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Infra page</title>
 </head>
-<body>
+<style>
+    .keuzeMenu{
+        position:relative;
+        text-align:center;
+        background-color:#EEEEEE;
+        font-family:"Open Sans", sans-serif;
+        width:900px;
+        height:450px;
+        margin:0 auto;
+    }
 
+    .scherm,#keuze1Scherm, #keuze2Scherm{
+        display:none;
+    }
+    #lengteIndex:invalid{
+        border-color:red;
+    }
+    #breedteIndex:invalid{
+        border-color:red;
+    }
+    .title{
+        padding-top:20px;
+        font-size:25px;
+        font-weight:700;
+        color:#212529;
+    }
+    #keuze1, #keuze2{
+        font-size:40px;
+        background-color:#E30613;
+        color:white;
+        width:35%;
+        font-weight:700;
+        height:200px;
+        margin:60px 40px 40px 20px;
+        border:none;
+        transition:opacity ease 0.2s;
+    }
+    #keuze1:hover{
+        cursor:pointer;
+        opacity:70%;
+    }
+    #keuze2:hover{
+        opacity:70%;
+        cursor:pointer;
+    }
+    .hoofdTekst{
+        font-weight:400;
+        color:#212529;
+        font-size:16px;
+        margin:0;
+        padding:0;
+    }
+    #keuze2Scherm .col1, #keuze2Scherm .col2{
+        display:inline-block;
+        width:40%;
+        vertical-align:top;
+        text-align:left;
+        margin: 20px 20px 10px;
+    }
+    .kleineTekst {
+        font-size:12px;
+    }
+    .onderTekst{
+        padding-top:40px;
+        width:70%;
+        margin:0 auto;
+    }
+    #terugKnop{
+        position:absolute;
+        left:0;
+        bottom:0;
+        margin:0;
+        width:100px;
+        height:40px;
+        background-color:#E30613;
+        color:white;
+        border:none;
+        font-size:16px;
+        transition:opacity ease 0.2s;
+    }
+    .resetKnop{
+        transition:opacity ease 0.2s;
+        font-size:16px;
+        border:none;
+        color:white;
+        background-color:#E30613;
+        width:100px;
+        height:40px;
+        position:absolute;
+        right:0;
+        bottom:0;
+        margin:0;
+    }
+    .resetKnop:hover{
+        cursor:pointer;
+        opacity:70%;
+    }
+    #terugKnop:hover{
+        opacity:70%;
+        cursor:pointer;
+    }
+    #P2Keuze1, #P2Keuze2,#P2Keuze3,#P2Keuze4,#P2Keuze5 ,#P2Keuze6{
+        width:100%;
+        height:33%;
+        margin-top: 10px;
+        margin-bottom:10px;
+        background-color:#E30613;
+        color:white;
+        font-size:25px;
+        border:none;
+    }
+    #keuze1Scherm .col1, #keuze1Scherm .col2{
+        display:inline-block;
+        width:35%;
+        height:170px;
+        margin: 20px;
+    }
+    #keuze1Scherm button:hover{
+        opacity:70%;
+        cursor:pointer;
+    }
+    #keuze1Scherm button{
+        transition:opacity ease 0.2s;
+    }
+</style>
+<body>
+<section class="keuzeMenu">
+    <div class="scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Wat gaat u verwarmen?</p>
+        <button type="button" id="keuze1" onclick= "nextScherm(1); keuze(1);">BINNEN</button>
+        <button type="button" id="keuze2" onclick="nextScherm(1); keuze(2);">BUITEN</button>
+    </div>
+    <!--Keuze1 is voor binnen, keuze2 is voor buiten-->
+    <div class="scherm">
+    <div id="keuze1Scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Wat voor kamer gaat u verwarmen?</p>
+        <div class="col1">
+        <button type="button" id="P2Keuze1" onclick="antwoord1Index=100; nextScherm(1);">Badkamer</button>
+        <br/>
+        <button type="button" id="P2Keuze2" onclick="antwoord1Index=75; nextScherm(1);">Studiekamer</button>
+            <br/>
+        <button type="button" id="P2Keuze3" onclick="antwoord1Index=60; nextScherm(1);">Slaapkamer</button>
+        </div>
+        <div class="col2">
+        <button type="button" id="P2Keuze4" onclick="antwoord1Index=125; nextScherm(1);">Garage/Schuur</button>
+            <br/>
+        <button type="button" id="P2Keuze5" onclick="antwoord1Index=75; nextScherm(1);">Woonkamer</button>
+            <br/>
+        <button type="button" id="P2Keuze6" onclick="antwoord1Index=75; nextScherm(1);">WC</button>
+    </div>
+        <p class="onderTekst">Gaat u uw slaapkamer ook als kantoor gebruiken kies dan voor studiekamer/kantoor. Voor alle overige ruimtes kies Woonkamer.</p>
+    </div>
+    <div id="keuze2Scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Watt u nodig heeft:</p>
+        <p class="col1">Voor een terras raden wij meestal aan per 2,5m breedte één 1500 Watt straler te monteren op maximaal 2,45m hoog. Monteert u tussen de 2,45 en 2,65m één van 2000 Watt en van 2,65m tot 3m één heater van 3000 Watt. De maximale uitval van een straler is 2,5m tot 3m.<br/>Stel u heeft een terras van 5 meter breed en u monteert de straler op 2,2m dan neemt u twee 1500 Watt stralers die u op 2,5m van elkaar monteert.</p>
+        <p class="col2">Voor buiten raden wij vaak korte golf infraroodheaters aan omdat deze het meest efficiënt zijn. Wilt u geen licht en wilt u buiten bijvoorbeeld panelen toepassen voor een overdekt terras? Dan heeft u voor een plafond tot 2,6m hoog minimaal 500 Watt per m2 nodig. Is het plafond tussen de 2,6m en 3m? Dan heeft u 625 Watt per m2 nodig.</p>
+        <p class="onderTekst">Voor meer informatie kunt u altijd even contact opnemen. </p>
+        <p class="kleineTekst">Dit is een advies en hier kunnen geen rechten aan worden ontleend.</p>
+        <button type="reset" class="resetKnop" onclick="reset()">OPNIEUW</button>
+    </div>
+    </div>
+    <div class="scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Hoe goed is deze kamer geïsoleerd?</p>
+        <button type="button" id="P3Keuze1" onclick="antwoord2Index=1; nextScherm(1);">Goed</button>
+        <button type="button" id="P3Keuze2" onclick="antwoord2Index=1.1; nextScherm(1);">Gemiddeld</button>
+        <button type="button" id="P3Keuze3" onclick="antwoord2Index=1.2; nextScherm(1);">Matig</button>
+        <button type="button" id="P3Keuze5" onclick="antwoord2Index=1.75; nextScherm(1);">Slecht</button>
+        <p class="onderTekst">Goed: Woningen van 2005 en nieuwer. Gemiddeld: Woningen van 1990-2005. Matig: Woningen ouder dan 1990. Slecht: Ruimtes met geen tot weinig aandacht aan isolatie.</p>
+    </div>
+    <div class="scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Hoe groot is deze kamer ongeveer?</p>
+        <input type="number" id="lengteIndex"  size="10" step="0.10" min="0" placeholder="0m" required>
+        <input type="number" id="breedteIndex" size="10" step="0.10" min="0" placeholder="0m" required>
+        <button type="button" id="berekenKnop" onclick="antwoordBerekenen();">Bereken</button>
+        <p class="onderTekst">Voor hoogte wordt uitgegaan van maximaal 2,6m, is uw ruimte hoger? Neem dan contact met ons op</p>
+    </div>
+    <div class="scherm">
+        <h1 class="title">WATT HEB IK NODIG?</h1>
+        <p class="hoofdTekst">Voor de door u gekozen ruimte raden wij aan:</p>
+        <p id="antwoord"></p>
+        <p class="middenTekst">Wij adviseren u om het wattage zo veel mogelijk te spreiden in producten met lage wattages, Bijvoorbeeld niet één 1000 Watt paneel maar twee 500 Watt panelen. Voor woningen raden wij meestal infraroodpanelen aan. Is uw ruimte een schuur of garage (slecht geïsoleerd)? Dan raden wij infraroodheaters aan. Voor meer informatie kunt u altijd even contact opnemen.</p>
+        <button type="reset" class="resetKnop" onclick="reset()">OPNIEUW</button>
+    </div>
+        <button type="submit" id="terugKnop"  onclick="nextScherm(-1)">TERUG</button>
+</section>
+
+
+<script>
+    var schermAantal=0;
+    var antwoord1Index,antwoord2Index;
+    showScherm(schermAantal);
+
+    function showScherm(n) {
+        var i = document.getElementsByClassName("scherm");
+        i[n].style.display = "block";
+        if(n===0){
+            document.getElementById("terugKnop").style.display="none";
+        }
+        else{
+            document.getElementById("terugKnop").style.display="block";
+        }
+    }
+
+
+    function nextScherm(n){
+        var x = document.getElementsByClassName("scherm");
+        x[schermAantal].style.display = "none";
+        schermAantal = schermAantal + n;
+        showScherm(schermAantal);
+    }
+
+
+    function keuze(n){
+        if(n===1){
+            document.getElementById("keuze1Scherm").style.display="block";
+            document.getElementById("keuze2Scherm").style.display="none";
+        }
+        if(n===2){
+            document.getElementById("keuze2Scherm").style.display="block";
+            document.getElementById("keuze1Scherm").style.display="none";
+        }
+        showScherm(schermAantal);
+    }
+
+    function antwoordBerekenen() {
+        var x = document.getElementById("lengteIndex").value;
+        var y = document.getElementById("breedteIndex").value;
+        if(x==='' || y===''){
+        }
+        else{
+            nextScherm(1);
+        }
+
+
+        var antwoord;
+
+        var a= antwoord1Index * antwoord2Index;
+        var b=x * y;
+
+        antwoord=a*b;
+        antwoord=Math.round(antwoord / 50) * 50;
+
+        document.getElementById("antwoord").innerHTML = ""+antwoord+" Watt";
+
+    }
+
+    function reset(){
+        nextScherm(-schermAantal);
+    }
+</script>
 </body>
 </html>

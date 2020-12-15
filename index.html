@@ -13,7 +13,7 @@
         background-color:#EEEEEE;
         font-family:"Open Sans", sans-serif;
         width:900px;
-        height:450px;
+        height:500px;
         margin:0 auto;
     }
 
@@ -21,25 +21,26 @@
         display:none;
     }
     #lengteIndex:invalid{
-        border-color:red;
+        border-color:#E30613;
     }
     #breedteIndex:invalid{
-        border-color:red;
+        border-color:#E30613;
     }
     .title{
         padding-top:20px;
-        font-size:25px;
-        font-weight:700;
+        font-size:48px;
+        font-weight:400;
         color:#212529;
+        margin:10px;
     }
     #keuze1, #keuze2{
-        font-size:40px;
+        font-size:25px;
         background-color:#E30613;
         color:white;
         width:35%;
         font-weight:700;
         height:200px;
-        margin:60px 40px 40px 20px;
+        margin: 60px 40px 20px;
         border:none;
         transition:opacity ease 0.2s;
     }
@@ -60,15 +61,17 @@
     }
     #keuze2Scherm .col1, #keuze2Scherm .col2{
         display:inline-block;
-        width:40%;
+        width:35%;
         vertical-align:top;
         text-align:left;
-        margin: 20px 20px 10px;
+        height:200px;
+        margin: 30px 30px 20px;
     }
     .kleineTekst {
         font-size:12px;
     }
     .onderTekst{
+        font-size:15px;
         padding-top:40px;
         width:70%;
         margin:0 auto;
@@ -107,7 +110,17 @@
         opacity:70%;
         cursor:pointer;
     }
-    #P2Keuze1, #P2Keuze2,#P2Keuze3,#P2Keuze4,#P2Keuze5 ,#P2Keuze6{
+    #keuze1Scherm .col1, #keuze1Scherm .col2{
+        display:inline-block;
+        width:35%;
+        height:200px;
+        margin:40px 40px;
+    }
+    button:hover{
+        opacity:70%;
+        cursor:pointer;
+    }
+    #keuze1Scherm button{
         width:100%;
         height:33%;
         margin-top: 10px;
@@ -116,19 +129,58 @@
         color:white;
         font-size:25px;
         border:none;
+        transition:opacity ease 0.2s;
     }
-    #keuze1Scherm .col1, #keuze1Scherm .col2{
+    .isolatieCol1,.isolatieCol2 {
+        display: inline-block;
+        width: 35%;
+        height: 200px;
+        margin: 40px 40px;
+    }
+    button{
+        outline:none;
+    }
+    .isolatieCol1 button,.isolatieCol2 button{
+        width:100%;
+        height:50%;
+        margin-top:10px;
+        margin-bottom:10px;
+        background-color:#E30613;
+        color:white;
+        font-size:25px;
+        border:none;
+        transition:opacity ease 0.2s;
+    }
+    .berekenCol1,.berekenCol2{
         display:inline-block;
         width:35%;
-        height:170px;
-        margin: 20px;
+        margin:40px 40px;
     }
-    #keuze1Scherm button:hover{
-        opacity:70%;
-        cursor:pointer;
+    .berekenCol1 input,.berekenCol2 input{
+        width:90%;
+        border:1px solid gray;
+        height:50px;
+        font-size:25px;
+        padding-left:20px;
+        padding-right:20px;
+        border-radius:25px;
+        outline:none;
     }
-    #keuze1Scherm button{
-        transition:opacity ease 0.2s;
+    #berekenKnop{
+        width:25%;
+        height:50px;
+        background-color:#E30613;
+        color:white;
+        font-size:25px;
+        border:none;
+    }
+    #verplicht{
+        color:#E30613;
+        font-size:15px;
+    }
+    .middenTekst{
+        width:70%;
+        margin:40px 40px;
     }
 </style>
 <body>
@@ -162,7 +214,7 @@
     </div>
     <div id="keuze2Scherm">
         <h1 class="title">WATT HEB IK NODIG?</h1>
-        <p class="hoofdTekst">Watt u nodig heeft:</p>
+        <p class="hoofdTekst">Wat u nodig heeft:</p>
         <p class="col1">Voor een terras raden wij meestal aan per 2,5m breedte één 1500 Watt straler te monteren op maximaal 2,45m hoog. Monteert u tussen de 2,45 en 2,65m één van 2000 Watt en van 2,65m tot 3m één heater van 3000 Watt. De maximale uitval van een straler is 2,5m tot 3m.<br/>Stel u heeft een terras van 5 meter breed en u monteert de straler op 2,2m dan neemt u twee 1500 Watt stralers die u op 2,5m van elkaar monteert.</p>
         <p class="col2">Voor buiten raden wij vaak korte golf infraroodheaters aan omdat deze het meest efficiënt zijn. Wilt u geen licht en wilt u buiten bijvoorbeeld panelen toepassen voor een overdekt terras? Dan heeft u voor een plafond tot 2,6m hoog minimaal 500 Watt per m2 nodig. Is het plafond tussen de 2,6m en 3m? Dan heeft u 625 Watt per m2 nodig.</p>
         <p class="onderTekst">Voor meer informatie kunt u altijd even contact opnemen. </p>
@@ -172,26 +224,41 @@
     </div>
     <div class="scherm">
         <h1 class="title">WATT HEB IK NODIG?</h1>
-        <p class="hoofdTekst">Hoe goed is deze kamer geïsoleerd?</p>
+        <p class="hoofdTekst">Hoe goed is deze ruimte geïsoleerd?</p>
+        <div class="isolatieCol1">
         <button type="button" id="P3Keuze1" onclick="antwoord2Index=1; nextScherm(1);">Goed</button>
+            <br/>
         <button type="button" id="P3Keuze2" onclick="antwoord2Index=1.1; nextScherm(1);">Gemiddeld</button>
+        </div>
+        <div class="isolatieCol2">
         <button type="button" id="P3Keuze3" onclick="antwoord2Index=1.2; nextScherm(1);">Matig</button>
+        <br/>
         <button type="button" id="P3Keuze5" onclick="antwoord2Index=1.75; nextScherm(1);">Slecht</button>
+        </div>
         <p class="onderTekst">Goed: Woningen van 2005 en nieuwer. Gemiddeld: Woningen van 1990-2005. Matig: Woningen ouder dan 1990. Slecht: Ruimtes met geen tot weinig aandacht aan isolatie.</p>
     </div>
     <div class="scherm">
         <h1 class="title">WATT HEB IK NODIG?</h1>
-        <p class="hoofdTekst">Hoe groot is deze kamer ongeveer?</p>
-        <input type="number" id="lengteIndex"  size="10" step="0.10" min="0" placeholder="0m" required>
-        <input type="number" id="breedteIndex" size="10" step="0.10" min="0" placeholder="0m" required>
+        <p class="hoofdTekst">Hoe groot is deze ruimte ongeveer?</p>
+        <div class="berekenCol1">
+        <p class="label">Lengte in meters:</p>
+        <input type="number" id="lengteIndex"  size="8" step="0.10" min="0" placeholder="0m" required>
+    </div>
+    <div class="berekenCol2">
+        <p class="label">Breedte in meters:</p>
+        <input type="number" id="breedteIndex" size="8" step="0.10" min="0" placeholder="0m" required>
+    </div>
+    <br/>
         <button type="button" id="berekenKnop" onclick="antwoordBerekenen();">Bereken</button>
         <p class="onderTekst">Voor hoogte wordt uitgegaan van maximaal 2,6m, is uw ruimte hoger? Neem dan contact met ons op</p>
+        <p id="verplicht"></p>
     </div>
     <div class="scherm">
         <h1 class="title">WATT HEB IK NODIG?</h1>
         <p class="hoofdTekst">Voor de door u gekozen ruimte raden wij aan:</p>
         <p id="antwoord"></p>
         <p class="middenTekst">Wij adviseren u om het wattage zo veel mogelijk te spreiden in producten met lage wattages, Bijvoorbeeld niet één 1000 Watt paneel maar twee 500 Watt panelen. Voor woningen raden wij meestal infraroodpanelen aan. Is uw ruimte een schuur of garage (slecht geïsoleerd)? Dan raden wij infraroodheaters aan. Voor meer informatie kunt u altijd even contact opnemen.</p>
+        <p class="kleineTekst">Dit is een advies en hier kunnen geen rechten aan worden ontleend.</p>
         <button type="reset" class="resetKnop" onclick="reset()">OPNIEUW</button>
     </div>
         <button type="submit" id="terugKnop"  onclick="nextScherm(-1)">TERUG</button>
@@ -239,8 +306,10 @@
         var x = document.getElementById("lengteIndex").value;
         var y = document.getElementById("breedteIndex").value;
         if(x==='' || y===''){
+            document.getElementById("verplicht").innerHTML="Vul de velden in";
         }
         else{
+            document.getElementById("verplicht").innerHTML="";
             nextScherm(1);
         }
 

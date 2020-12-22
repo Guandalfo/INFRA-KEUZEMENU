@@ -9,7 +9,6 @@
 </head>
 <style>
 
-
      .keuzeMenu .scherm,#keuze1Scherm, #keuze2Scherm{
         display:none;
     }
@@ -100,7 +99,7 @@
         opacity:70%;
         cursor:pointer;
     }
-    .keuzeMenu #keuze1Scherm .col1, #keuze1Scherm .col2{
+    .keuzeMenu #keuze1Scherm .col1, .keuzeMenu #keuze1Scherm .col2{
         display:inline-block;
         width:35%;
         margin:40px 40px 20px 40px;
@@ -121,7 +120,7 @@
         border:none;
         transition:opacity ease 0.2s;
     }
-    .keuzeMenu .isolatieCol1,.isolatieCol2 {
+    .keuzeMenu .isolatieCol1, .keuzeMenu.isolatieCol2 {
         display: inline-block;
         width: 35%;
         margin: 40px 40px 20px 40px;
@@ -129,7 +128,7 @@
     .keuzeMenu button{
         outline:none;
     }
-    .keuzeMenu .isolatieCol1 button,.isolatieCol2 button{
+    .keuzeMenu .isolatieCol1 button,.keuzeMenu .isolatieCol2 button{
         width:100%;
         height:100px;
         margin-top:10px;
@@ -140,12 +139,12 @@
         border:none;
         transition:opacity ease 0.2s;
     }
-    .keuzeMenu .berekenCol1,.berekenCol2{
+    .keuzeMenu .berekenCol1,.keuzeMenu .berekenCol2{
         display:inline-block;
         width:35%;
         margin:40px 40px;
     }
-    .keuzeMenu .berekenCol1 input,.berekenCol2 input{
+    .keuzeMenu .berekenCol1 input,.keuzeMenu .berekenCol2 input{
         width:90%;
         border:1px solid gray;
         height:50px;
@@ -169,7 +168,6 @@
     }
     .keuzeMenu .middenTekst{
         width:70%;
-        height:200px;
         margin:0 auto;
         padding:20px 40px;
     }
@@ -188,14 +186,92 @@
          height:500px;
          margin:0 auto;
      }
-     @media(max-width: 1312px){
-         .keuzeMenu{
-             width:900px;
-         }
-     }
+
      @media(max-width: 992px){
          .keuzeMenu{
              width:600px;
+         }
+         .keuzeMenu #keuze1, .keuzeMenu #keuze2{
+             width:60%;
+             font-size:20px;
+             margin:40px  10px 0 10px;
+             height:120px;
+         }
+         .keuzeMenu .title{
+             font-size:30px;
+         }
+         .keuzeMenu .hoofdTekst{
+             font-size:15px;
+             width:80%;
+             margin:0 auto;
+         }
+         .keuzeMenu #keuze1Scherm .col1, .keuzeMenu #keuze1Scherm .col2{
+             width:40%;
+             margin:20px  10px 0 10px;
+             display:inline-block;
+
+         }
+         .keuzeMenu #keuze1Scherm button{
+             font-size:20px;
+         }
+         .keuzeMenu .onderTekst{
+             padding-top:10px;
+             font-size:15px;
+             width:90%;
+         }
+         .keuzeMenu #terugKnop{
+             width:100px;
+             height:40px;
+             font-size:15px;
+         }
+         .keuzeMenu .resetKnop{
+             width:100px;
+             height:40px;
+             font-size:15px;
+         }
+         .keuzeMenu .kleineTekst{
+             font-size:10px;
+         }
+         .keuzeMenu #keuze2Scherm .txt{
+             font-size:15px;
+             width:80%;
+             margin:0 auto;
+             padding:20px 10px 10px 10px;
+         }
+         .keuzeMenu .isolatieCol1, .keuzeMenu .isolatieCol2{
+             width:40%;
+             margin:20px 10px 0 10px;
+         }
+         .keuzeMenu .isolatieCol1 button,.isolatieCol2 button{
+             font-size:20px;
+         }
+         .keuzeMenu .berekenCol1,.berekenCol2{
+             width:33%;
+             margin:20px 20px 30px 10px;
+         }
+         .keuzeMenu .label{
+             margin-top:20px;
+             font-size:15px;
+         }
+         .keuzeMenu .berekenCol1 input,.berekenCol2 input{
+             font-size:15px;
+             height:30px;
+         }
+         .keuzeMenu #berekenKnop{
+             margin-bottom:20px;
+             width:40%;
+             font-size:20px;
+         }
+         .keuzeMenu #verplicht{
+             font-size:15px;
+         }
+         .keuzeMenu .middenTekst{
+             font-size:15px;
+             width:80%;
+             margin:0 auto;
+         }
+         .keuzeMenu #antwoord{
+             font-size:22px;
          }
      }
      @media(max-width: 688px){
@@ -204,6 +280,7 @@
          }
          .keuzeMenu #keuze1, .keuzeMenu #keuze2{
              width:70%;
+             font-size:20px;
              margin:40px  10px 0 10px;
              height:100px;
          }
@@ -212,10 +289,12 @@
          }
          .keuzeMenu .hoofdTekst{
              font-size:15px;
+             width:80%;
+             margin:0 auto;
          }
          .keuzeMenu #keuze1Scherm .col1, .keuzeMenu #keuze1Scherm .col2{
              width:40%;
-             margin:40px  10px 0 10px;
+             margin:20px  10px 0 10px;
              display:inline-block;
 
          }
@@ -240,10 +319,45 @@
              font-size:8px;
          }
          .keuzeMenu #keuze2Scherm .txt{
-             font-size:11px;
+             font-size:10px;
              width:90%;
-             margin:10px  10px 5px 10px;
+             margin:20px  10px 20px 10px;
              padding:0;
+         }
+         .keuzeMenu .isolatieCol1, .keuzeMenu .isolatieCol2{
+             width:40%;
+             margin:20px 10px 0 10px;
+         }
+         .keuzeMenu .isolatieCol1 button,.isolatieCol2 button{
+             font-size:15px;
+         }
+         .keuzeMenu .berekenCol1,.berekenCol2{
+             width:33%;
+             margin:20px 20px 30px 10px;
+         }
+         .keuzeMenu .label{
+             margin-top:20px;
+             font-size:10px;
+         }
+         .keuzeMenu .berekenCol1 input,.berekenCol2 input{
+             font-size:15px;
+             height:30px;
+         }
+         .keuzeMenu #berekenKnop{
+             margin-bottom:20px;
+             width:40%;
+             font-size:15px;
+         }
+         .keuzeMenu #verplicht{
+             font-size:12px;
+         }
+         .keuzeMenu .middenTekst{
+             font-size:10px;
+             width:80%;
+             margin:0 auto;
+         }
+         .keuzeMenu #antwoord{
+             font-size:20px;
          }
      }
 </style>
